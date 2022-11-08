@@ -18,6 +18,26 @@ var map = d3.select("#content g.map")
 	.attr("d", geoGenerator)
 	.style("fill","green");
 
+
+//done inside of drawMap to ensure map if fully finished before cirlces are addded.-------------
+//dectects slider value and movement and calls for new circles to be drawn when slider changes
+var slider=document.getElementById("myRange");
+var output=document.getElementById("value");
+output.innerHTML=slider.value;
+slider.oninput=function(){output.innerHTML=this.value;
+}
+slider.addEventListener("click",function(){
+	d3.json("http://34.78.46.186/Circles/Towns/"+slider.value)
+	.then(function(data) {
+		drawCircles(data) 
+	})
+}); 
+	
+//reads inital data 
+ d3.json("http://34.78.46.186/Circles/Towns/25")
+	.then(function(data) {
+		drawCircles(data)
+	}); 
 }
 
 
@@ -133,24 +153,7 @@ d3.json("https://gist.githubusercontent.com/carmoreira/49fd11a591e0ce2c41d36f9fa
 		drawMap(json)
 	});
 
-//dectects slider value and movement and calls for new circles to be drawn when slider changes
-var slider=document.getElementById("myRange");
-var output=document.getElementById("value");
-output.innerHTML=slider.value;
-slider.oninput=function(){output.innerHTML=this.value;
-}
-slider.addEventListener("click",function(){
-	d3.json("http://34.78.46.186/Circles/Towns/"+slider.value)
-	.then(function(data) {
-		drawCircles(data) 
-	})
-}); 
-	
-//reads inital data
- d3.json("http://34.78.46.186/Circles/Towns/25")
-	.then(function(data) {
-		drawCircles(data)
-	}); 
+
 	
 	
 }
