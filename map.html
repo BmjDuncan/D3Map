@@ -1,0 +1,28 @@
+<!DOCTYPE HTML >
+
+<html>
+<head>
+<meta charset="utf-8">
+<title>Map of UK Towns begining with A</title>
+<script src = "https://d3js.org/d3.v7.min.js"></script> 
+<script type ="text/javascript" src = "uk.js"></script> 
+<link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+<!--Creates an svg for the map and circles to be drawn -->
+<div>
+<p> Hover over a town to find out more</p>
+<div id="content">
+<svg width="800px" height="550px">
+  <g class="map"></g>
+</svg>
+</div>
+<p> Use the slider to change the towns shown with a maximum of 500:</p>
+<!--Draws the slider -->
+<div class="slideContainer">
+	<input type="range" min="0" max="500" value="25" id="myRange" class="slider">
+	<p>Number of Towns: <span id="value"></span></p>
+</div>
+</body>
+</html>
