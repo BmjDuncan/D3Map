@@ -122,7 +122,6 @@ var Circles=d3.select("#content g.map").selectAll("circle")
 	.on("mouseover", mouseover)
 	.on("mousemove", mousemove)
 	.on("mouseleave", mouseleave);
-		;
 		
 }
 
