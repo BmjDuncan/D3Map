@@ -16,9 +16,7 @@ var map = d3.select("#content g.map")
 	.enter()
 	.append("path")
 	.attr("d", geoGenerator)
-	.style("z-index",1)
-	.style("fill","green")
-  	.style("z-index","0");
+	.style("fill","green");
 
 }
 
@@ -93,7 +91,7 @@ var Circles=d3.select("#content g.map").selectAll("circle")
 				.style("fill","red")
 				.style("opacity", 0.8)
 				.style("stroke", "black")
-				.style("stroke-width",1)				;
+				.style("stroke-width",1);
 		},
 		function(update){
 			return update
@@ -120,6 +118,7 @@ var Circles=d3.select("#content g.map").selectAll("circle")
 			.remove();
 		})
 	.attr("id",function(d,i){return i})
+	.style("z-index","3")
 	.on("mouseover", mouseover)
 	.on("mousemove", mousemove)
 	.on("mouseleave", mouseleave);
@@ -129,8 +128,6 @@ var Circles=d3.select("#content g.map").selectAll("circle")
 
 //Calls for UK MAP and Circles/Update Circles-------------------------
 function loadMap(){
-
-
 //reads UK map data can calls for make to be drawn
 d3.json("https://gist.githubusercontent.com/carmoreira/49fd11a591e0ce2c41d36f9fa96c9b49/raw/e032a0174fc35a416cff3ef7cf1233973c018294/ukcounties.json")
 	.then(function(json) {
